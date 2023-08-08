@@ -19,4 +19,4 @@ export const statusStateMachine = {
 export const canChangeState = (
   currentState: EstimateStatuses,
   newState: EstimateStatuses,
-) => statusStateMachine[currentState].includes(newState);
+) => statusStateMachine[currentState]?.includes(newState);
