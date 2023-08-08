@@ -4,9 +4,13 @@
   "description": "Business rules for unbreakmycar",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "jest",
-    "build": "tsc"
+    "build": "tsc",
+    "preversion": "npm run build"
   },
   "author": "",
   "license": "ISC",
