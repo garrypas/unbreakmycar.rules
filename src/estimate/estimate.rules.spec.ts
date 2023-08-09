@@ -1,5 +1,5 @@
 import { EstimateStatuses } from './estimate.enums';
-import { canChangeState } from './estimate.rules';
+import { canChangeState, canGiveFeedback } from './estimate.rules';
 
 describe('estimate.rules tests', () => {
   test('Can change to accepted if pending', () => {
@@ -24,5 +24,23 @@ describe('estimate.rules tests', () => {
     expect(
       canChangeState(EstimateStatuses.completed, EstimateStatuses.rejected),
     ).toBeFalsy();
+  });
+
+  test('Can give feedback when completed', () => {
+    expect(
+      canGiveFeedback(EstimateStatuses.completed),
+    ).toBeTruthy();
+  });
+
+  test('Can give feedback when not_completed', () => {
+    expect(
+      canGiveFeedback(EstimateStatuses.completed),
+    ).toBeTruthy();
+  });
+
+  test('Cannot give feedback when not in a completed state', () => {
+    expect(
+      canGiveFeedback(EstimateStatuses.completed),
+    ).toBeTruthy();
   });
 });

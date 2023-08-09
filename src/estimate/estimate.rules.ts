@@ -16,7 +16,13 @@ export const statusStateMachine = {
   [EstimateStatuses.rejected]: [],
 };
 
+export const completedStatuses = [EstimateStatuses.completed, EstimateStatuses.not_completed];
+
 export const canChangeState = (
   currentState: EstimateStatuses,
   newState: EstimateStatuses,
 ) => statusStateMachine[currentState]?.includes(newState);
+
+export const canGiveFeedback = (
+  currentState: EstimateStatuses,
+) => completedStatuses.includes(currentState);
