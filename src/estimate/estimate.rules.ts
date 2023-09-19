@@ -10,6 +10,7 @@ export const statusStateMachine = {
   [EstimateStatuses.completed]: [],
   [EstimateStatuses.not_completed]: [],
   [EstimateStatuses.pending]: [
+    EstimateStatuses.cancelled,
     EstimateStatuses.accepted,
     EstimateStatuses.rejected,
   ],

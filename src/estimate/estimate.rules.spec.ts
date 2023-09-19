@@ -26,6 +26,12 @@ describe('estimate.rules tests', () => {
     ).toBeFalsy();
   });
 
+  test('Can change to cancelled if pending', () => {
+    expect(
+      canChangeState(EstimateStatuses.pending, EstimateStatuses.cancelled),
+    ).toBeTruthy();
+  });
+
   test('Can give feedback when completed', () => {
     expect(
       canGiveFeedback(EstimateStatuses.completed),
