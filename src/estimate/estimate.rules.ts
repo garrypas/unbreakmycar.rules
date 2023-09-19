@@ -2,7 +2,6 @@ import { EstimateStatuses } from './estimate.enums';
 
 export const statusStateMachine = {
   [EstimateStatuses.accepted]: [
-    EstimateStatuses.cancelled,
     EstimateStatuses.completed,
     EstimateStatuses.not_completed,
   ],
@@ -18,6 +17,7 @@ export const statusStateMachine = {
 };
 
 export const completedStatuses = [EstimateStatuses.completed, EstimateStatuses.not_completed];
+export const cancellableStatuses = Object.keys(statusStateMachine).filter(status => statusStateMachine[status].includes(EstimateStatuses.cancelled));
 
 export const canChangeState = (
   currentState: EstimateStatuses,
@@ -27,3 +27,7 @@ export const canChangeState = (
 export const canGiveFeedback = (
   currentState: EstimateStatuses,
 ) => completedStatuses.includes(currentState);
+
+export const canCancel = (
+  currentState: EstimateStatuses,
+) => cancellableStatuses.includes(currentState);
