@@ -5,4 +5,5 @@ export enum EstimateStatuses {
   cancelled = 'cancelled',
   completed = 'completed',
   not_completed = 'not_completed',
+  expired = 'expired',
 }
