@@ -5,4 +5,5 @@ export enum ListingEnums {
   deleted = 'deleted',
   accepted = 'accepted',
   expired = 'expired',
+  relisted = 'relisted',
 }
