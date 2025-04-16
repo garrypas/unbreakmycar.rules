@@ -4,4 +4,5 @@ export enum RepairerLevelEnums {
   basic = 'basic',
   suspended = 'suspended',
   deleted = 'deleted',
+  offPlatform = 'off_platform',
 }
